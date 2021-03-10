@@ -1,16 +1,20 @@
 import React from "react";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // @ts-ignore
 import Home from "./components/Home";
 import SearchBar from "./components/SearchBar";
 
 const BooksApp = () => {
   return (
-    <div>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/search" component={SearchBar} />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/search" component={SearchBar} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
