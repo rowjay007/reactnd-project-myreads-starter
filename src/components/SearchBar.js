@@ -10,7 +10,7 @@ import BookLog from "./BookLog";
 import { Link } from "react-router-dom";
 
 // Component Search
-class Search extends React.Component {
+class SearchBar extends React.Component {
   // Invoked before component is mounted
   constructor(props) {
     super(props);
@@ -106,4 +106,4 @@ class Search extends React.Component {
 }
 
 // named export
-export default Search;
+export default SearchBar;
