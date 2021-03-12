@@ -1,42 +1,27 @@
-// Make react usable
 import React from "react";
-
-// Import Shelf components
 import BookShelf from "./BookShelf";
-
-// Use API
 import * as BooksAPI from "../BooksAPI";
-
-// Import react-router-dom
 import { Link } from "react-router-dom";
 
-// Component Home
 class Home extends React.Component {
-  // Invoked before component is mounted
   constructor(props) {
     super(props);
-    // Object to store list of books
+
     this.state = { bookDisplay: [] };
   }
 
-  // Invoked after a component is mounted
   componentDidMount() {
-    // Call API for book listing
     BooksAPI.getAll().then((response) => {
-      // Re render when component changes
       this.setState({ bookDisplay: response });
     });
   }
 
-  // Change book shelf
   changeShelf = (shiftedBook, newShelf) => {
-    // Call API for book and its new shelf
     BooksAPI.update(shiftedBook, newShelf).then((response) => {
-      // Assign its new shelf to it
       shiftedBook.shelf = newShelf;
-      // Save new state
+
       let newBookDisplay = this.state.bookDisplay;
-      // Set new state
+
       this.setState({ bookDisplay: newBookDisplay });
     });
   };
@@ -85,5 +70,4 @@ class Home extends React.Component {
   }
 }
 
-// named export
 export default Home;

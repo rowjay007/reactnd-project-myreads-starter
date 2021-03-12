@@ -1,9 +1,6 @@
 import React from "react";
-
-// Import Book components
 import BookLog from "./BookLog";
 
-// Component Shelf
 class Shelf extends React.Component {
   render() {
     return (
@@ -26,5 +23,4 @@ class Shelf extends React.Component {
   }
 }
 
-// named export
 export default Shelf;

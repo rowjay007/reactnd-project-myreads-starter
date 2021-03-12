@@ -51,5 +51,4 @@ class BookLog extends React.Component {
   }
 }
 
-// named export
 export default BookLog;
