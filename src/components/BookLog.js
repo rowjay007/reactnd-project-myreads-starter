@@ -28,6 +28,7 @@ class BookLog extends React.Component {
                 }}
               >
                 <option value="move" disabled>
+                
                   Move to...
                 </option>
                 <option value="currentlyReading">Currently Reading</option>
