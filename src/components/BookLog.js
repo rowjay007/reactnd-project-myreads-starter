@@ -1,8 +1,6 @@
 import React from "react";
 
-const BookLog = ({book, changeShelf}) => {
-
-  
+const BookLog = ({ book, changeShelf }) => {
   return (
     <li>
       <div className="book">
@@ -13,9 +11,7 @@ const BookLog = ({book, changeShelf}) => {
               width: 128,
               height: 192,
               backgroundImage: `url("${
-                book.imageLinks
-                  ? book.imageLinks.thumbnail
-                  : ""
+                book.imageLinks ? book.imageLinks.thumbnail : ""
               }")`,
             }}
           />
@@ -37,13 +33,9 @@ const BookLog = ({book, changeShelf}) => {
             </select>
           </div>
         </div>
-        <div className="book-title">
-          {book.title ? book.title : "Untitled"}
-        </div>
+        <div className="book-title">{book.title ? book.title : "Untitled"}</div>
         <div className="book-authors">
-          {book.authors
-            ? book.authors.join(", ")
-            : "No author listed"}
+          {book.authors ? book.authors.join(", ") : "No author listed"}
         </div>
       </div>
     </li>
@@ -51,5 +43,3 @@ const BookLog = ({book, changeShelf}) => {
 };
 
 export default BookLog;
-
-
