@@ -10,11 +10,10 @@ class Home extends React.Component {
     this.state = { bookDisplay: [] };
   }
 
-  componentDidMount() {
-    BooksAPI.getAll().then((response) => {
-      this.setState({ bookDisplay: response });
-    });
-  }
+  async componentDidMount() {
+    const bookDisplay = await BooksAPI.getAll();
+    this.setState({ bookDisplay });
+  } 
 
   changeShelf = (shiftedBook, newShelf) => {
     BooksAPI.update(shiftedBook, newShelf).then((response) => {
