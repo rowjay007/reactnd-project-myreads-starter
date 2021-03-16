@@ -11,7 +11,7 @@ const BookLog = ({ book, changeShelf }) => {
               width: 128,
               height: 192,
               backgroundImage: `url("${
-                book.imageLinks ? book.imageLinks.thumbnail : ""
+                book.imageLinks ? book.imageLinks.thumbnail : "none"
               }")`,
             }}
           />
