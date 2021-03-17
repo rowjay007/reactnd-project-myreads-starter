@@ -30,14 +30,19 @@ class SearchBar extends React.Component {
     this.setState({ data: newData });
 
     if (
-      this.state.data === "" ||
-      this.state.data === undefined ||
-      this.state.data === null
+      newData === "" ||
+      newData === undefined ||
+      newData === null
     ) {
       return this.setState({ searchData: [] });
     }
+<<<<<<< HEAD
     BooksAPI.search(this.state.data).then((showBook) => {
       if (showBook.error && showBook.items) {
+=======
+    BooksAPI.search(newData).then((response) => {
+      if (response.error && response.items) {
+>>>>>>> refactoring
         return this.setState({ searchData: [] });
       } else {
         return this.setState({ searchData: showBook });
