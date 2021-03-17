@@ -36,16 +36,18 @@ class SearchBar extends React.Component {
     ) {
       return this.setState({ searchData: [] });
     }
-<<<<<<< HEAD
-    BooksAPI.search(this.state.data).then((showBook) => {
-      if (showBook.error && showBook.items) {
-=======
     BooksAPI.search(newData).then((response) => {
       if (response.error && response.items) {
->>>>>>> refactoring
         return this.setState({ searchData: [] });
       } else {
-        return this.setState({ searchData: showBook });
+        response.forEach((book, index) => {
+          this.state.showBook.forEach((shelvedBook) => {
+            if (book.id === shelvedBook.id) {
+              book.shelf = shelvedBook.shelf;
+            }
+          });
+        });
+        return this.setState({ searchData: response });
       }
     });
   }
