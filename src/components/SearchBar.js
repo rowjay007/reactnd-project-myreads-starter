@@ -26,8 +26,8 @@ class SearchBar extends React.Component {
     });
   };
 
-  searchBook(newdata) {
-    this.setState({ data: newdata });
+  searchBook(newData) {
+    this.setState({ data: newData });
 
     if (
       this.state.data === "" ||
@@ -36,18 +36,11 @@ class SearchBar extends React.Component {
     ) {
       return this.setState({ searchData: [] });
     }
-    BooksAPI.search(this.state.data).then((response) => {
-      if (response.error && response.items) {
+    BooksAPI.search(this.state.data).then((showBook) => {
+      if (showBook.error && showBook.items) {
         return this.setState({ searchData: [] });
       } else {
-        response.forEach((book, index) => {
-          this.state.showBook.forEach((shelvedBook) => {
-            if (book.id === shelvedBook.id) {
-              book.shelf = shelvedBook.shelf;
-            }
-          });
-        });
-        return this.setState({ searchData: response });
+        return this.setState({ searchData: showBook });
       }
     });
   }
