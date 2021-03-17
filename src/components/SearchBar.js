@@ -26,17 +26,17 @@ class SearchBar extends React.Component {
     });
   };
 
-  searchBook(newdata) {
-    this.setState({ data: newdata });
+  searchBook(newData) {
+    this.setState({ data: newData });
 
     if (
-      this.state.data === "" ||
-      this.state.data === undefined ||
-      this.state.data === null
+      newData === "" ||
+      newData === undefined ||
+      newData === null
     ) {
       return this.setState({ searchData: [] });
     }
-    BooksAPI.search(this.state.data).then((response) => {
+    BooksAPI.search(newData).then((response) => {
       if (response.error && response.items) {
         return this.setState({ searchData: [] });
       } else {
